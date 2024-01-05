@@ -1,0 +1,13 @@
+[gd_resource type="StandardMaterial3D" load_steps=3 format=3 uid="uid://def31ksej61ft"]
+
+[ext_resource type="Texture2D" uid="uid://r6uqqsj14qau" path="res://asset/Material/high material/brick/textures/factory_brick_diff_1k.jpg" id="1_eikac"]
+[ext_resource type="Texture2D" uid="uid://wev4l3gl1q06" path="res://asset/Material/high material/brick/textures/factory_brick_rough_1k.jpg" id="2_ikr2c"]
+
+[resource]
+albedo_texture = ExtResource("1_eikac")
+roughness_texture = ExtResource("2_ikr2c")
+normal_enabled = true
+uv1_triplanar = true
+uv1_world_triplanar = true
+uv2_triplanar = true
+uv2_world_triplanar = true

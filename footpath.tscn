@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://dgc8jp2iohde3"]
+
+[ext_resource type="Script" path="res://footpath.gd" id="1_r4yl0"]
+[ext_resource type="ArrayMesh" uid="uid://5l40uu7lo07v" path="res://asset/model/footpath.obj" id="2_lgbfw"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_382re"]
+data = PackedVector3Array(-0.5, 0.05, 1, -0.5, -0.05, 1, -0.5, 0.05, -1, -0.5, 0.05, -1, -0.5, -0.05, 1, -0.5, -0.05, -1, -0.5, 0.05, -1, -0.5, -0.05, -1, 0.5, 0.05, -1, 0.5, 0.05, -1, -0.5, -0.05, -1, 0.5, -0.05, -1, 0.5, 0.05, -1, 0.5, -0.05, -1, 0.5, 0.05, 1, 0.5, 0.05, 1, 0.5, -0.05, -1, 0.5, -0.05, 1, 0.5, 0.05, 1, 0.5, -0.05, 1, -0.5, 0.05, 1, -0.5, 0.05, 1, 0.5, -0.05, 1, -0.5, -0.05, 1, 0.5, -0.05, -1, -0.5, -0.05, -1, 0.5, -0.05, 1, 0.5, -0.05, 1, -0.5, -0.05, -1, -0.5, -0.05, 1, -0.5, 0.05, -1, 0.5, 0.05, -1, -0.5, 0.05, 1, -0.5, 0.05, 1, 0.5, 0.05, -1, 0.5, 0.05, 1)
+
+[node name="footpath" type="StaticBody3D"]
+script = ExtResource("1_r4yl0")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+mesh = ExtResource("2_lgbfw")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("ConcavePolygonShape3D_382re")

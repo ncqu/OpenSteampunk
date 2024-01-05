@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://dd4w3vsxtmu5x"]
+
+[ext_resource type="Shader" path="res://shader/PSX.gdshader" id="1_1a5gw"]
+[ext_resource type="Texture2D" uid="uid://dhbr0wqndkt4x" path="res://asset/Station_tex.png" id="2_nlv1y"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_1a5gw")
+shader_parameter/jitter = 0.101
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = true
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo = ExtResource("2_nlv1y")

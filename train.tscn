@@ -1,0 +1,46 @@
+[gd_scene load_steps=7 format=3 uid="uid://d3kk1sxm4x00m"]
+
+[ext_resource type="Script" path="res://train.gd" id="1_2vm0f"]
+[ext_resource type="Script" path="res://TrainBody.gd" id="2_be41r"]
+[ext_resource type="Material" uid="uid://def31ksej61ft" path="res://temp.tres" id="3_jif74"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ysow2"]
+material = ExtResource("3_jif74")
+size = Vector3(0.5, 0.5, 1)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_a4vc8"]
+data = PackedVector3Array(-0.25, 0.25, 0.5, 0.25, 0.25, 0.5, -0.25, -0.25, 0.5, 0.25, 0.25, 0.5, 0.25, -0.25, 0.5, -0.25, -0.25, 0.5, 0.25, 0.25, -0.5, -0.25, 0.25, -0.5, 0.25, -0.25, -0.5, -0.25, 0.25, -0.5, -0.25, -0.25, -0.5, 0.25, -0.25, -0.5, 0.25, 0.25, 0.5, 0.25, 0.25, -0.5, 0.25, -0.25, 0.5, 0.25, 0.25, -0.5, 0.25, -0.25, -0.5, 0.25, -0.25, 0.5, -0.25, 0.25, -0.5, -0.25, 0.25, 0.5, -0.25, -0.25, -0.5, -0.25, 0.25, 0.5, -0.25, -0.25, 0.5, -0.25, -0.25, -0.5, 0.25, 0.25, 0.5, -0.25, 0.25, 0.5, 0.25, 0.25, -0.5, -0.25, 0.25, 0.5, -0.25, 0.25, -0.5, 0.25, 0.25, -0.5, -0.25, -0.25, 0.5, 0.25, -0.25, 0.5, -0.25, -0.25, -0.5, 0.25, -0.25, 0.5, 0.25, -0.25, -0.5, -0.25, -0.25, -0.5)
+
+[sub_resource type="FogMaterial" id="FogMaterial_8dq01"]
+density = 3.0935
+albedo = Color(0.294118, 0.294118, 0.294118, 1)
+emission = Color(0.262745, 0.262745, 0.262745, 1)
+
+[node name="Train" type="PathFollow3D" groups=["ExcludedClickables"]]
+script = ExtResource("1_2vm0f")
+
+[node name="TrainBody" type="StaticBody3D" parent="." groups=["ExcludedClickables", "train"]]
+script = ExtResource("2_be41r")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="TrainBody"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+mesh = SubResource("BoxMesh_ysow2")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TrainBody"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_a4vc8")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+shape = SubResource("ConcavePolygonShape3D_a4vc8")
+
+[node name="FogVolume" type="FogVolume" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.995749, 0.09211, 0, -0.09211, -0.995749, 0, -0.107475, 0)
+size = Vector3(2.96383, 3.5288, 2.95584)
+shape = 1
+material = SubResource("FogMaterial_8dq01")
+
+[connection signal="area_entered" from="Area3D" to="." method="_on_area_3d_area_entered"]

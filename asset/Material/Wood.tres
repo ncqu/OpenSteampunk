@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://cpaw6gxagtig"]
+
+[ext_resource type="Shader" path="res://shader/PSX.gdshader" id="1_kx8vo"]
+[ext_resource type="Texture2D" uid="uid://bg41u1s0ulto1" path="res://asset/Wood_12-128x128.png" id="2_8l3y3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_kx8vo")
+shader_parameter/jitter = 0.279
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = false
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo = ExtResource("2_8l3y3")

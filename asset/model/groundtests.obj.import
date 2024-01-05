@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://qiofexpo3ov2"
+path="res://.godot/imported/groundtests.obj-e1d537f55924e7798e4630d19270648c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/groundtests.obj-e1d537f55924e7798e4630d19270648c.mesh"]
+
+source_file="res://asset/model/groundtests.obj"
+dest_files=["res://.godot/imported/groundtests.obj-e1d537f55924e7798e4630d19270648c.mesh", "res://.godot/imported/groundtests.obj-e1d537f55924e7798e4630d19270648c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

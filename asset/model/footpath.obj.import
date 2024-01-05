@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://5l40uu7lo07v"
+path="res://.godot/imported/footpath.obj-9ac046118b86f57ed8a1fd7ffffb81f3.mesh"
+
+[deps]
+
+files=["res://.godot/imported/footpath.obj-9ac046118b86f57ed8a1fd7ffffb81f3.mesh"]
+
+source_file="res://asset/model/footpath.obj"
+dest_files=["res://.godot/imported/footpath.obj-9ac046118b86f57ed8a1fd7ffffb81f3.mesh", "res://.godot/imported/footpath.obj-9ac046118b86f57ed8a1fd7ffffb81f3.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

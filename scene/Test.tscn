@@ -1,0 +1,209 @@
+[gd_scene load_steps=15 format=3 uid="uid://dj5ammfd5e3g1"]
+
+[ext_resource type="Script" path="res://scene/Test.gd" id="1_sxadt"]
+[ext_resource type="PackedScene" uid="uid://cqdbu2p634k1d" path="res://scene/player.tscn" id="2_awfc6"]
+[ext_resource type="PackedScene" uid="uid://c8ooq3xa8dwfd" path="res://clocktower.tscn" id="6_fwg0q"]
+[ext_resource type="Script" path="res://scene/Sun.gd" id="10_l5p2b"]
+[ext_resource type="ArrayMesh" uid="uid://qiofexpo3ov2" path="res://asset/model/groundtests.obj" id="11_78v2b"]
+[ext_resource type="Theme" uid="uid://dnjsa02ddd40g" path="res://asset/UI/LargeTheme.tres" id="12_3mgct"]
+[ext_resource type="Theme" uid="uid://brdu02r7dqvyu" path="res://asset/UI/BasicTheme.tres" id="13_uq88c"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_dn1ys"]
+
+[sub_resource type="Sky" id="Sky_5y43g"]
+sky_material = SubResource("ProceduralSkyMaterial_dn1ys")
+
+[sub_resource type="Environment" id="Environment_ahmkn"]
+background_mode = 2
+sky = SubResource("Sky_5y43g")
+sky_custom_fov = 100.4
+ambient_light_source = 3
+ambient_light_color = Color(1, 1, 1, 1)
+ambient_light_energy = 1.67
+reflected_light_source = 2
+glow_enabled = true
+glow_levels/4 = 9.17
+fog_light_energy = 0.09
+volumetric_fog_enabled = true
+volumetric_fog_density = 0.0
+adjustment_enabled = true
+adjustment_saturation = 0.88
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_tsf15"]
+data = PackedVector3Array(188.532, 0, 188.532, -188.532, 0, 188.532, 188.532, 0, -188.532, 188.532, 0, -188.532, -188.532, 0, 188.532, -188.532, 0, -188.532)
+
+[sub_resource type="Animation" id="Animation_u8huc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_jjxv0"]
+resource_name = "sun"
+length = 500.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 500),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector3(-1.5708, 0, 0), Vector3(4.71239, 0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_kyjvh"]
+_data = {
+"RESET": SubResource("Animation_u8huc"),
+"sun": SubResource("Animation_jjxv0")
+}
+
+[node name="Test" type="Node3D"]
+script = ExtResource("1_sxadt")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ahmkn")
+
+[node name="Scenemakeruppers" type="Node" parent="."]
+
+[node name="Player" parent="." instance=ExtResource("2_awfc6")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3205, 28.3981, -39.6357)
+speed = 30
+
+[node name="ClickableObjects" type="Node" parent="."]
+
+[node name="Clocktower" parent="ClickableObjects" instance=ExtResource("6_fwg0q")]
+
+[node name="Ground" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.590255, 0, 8.64688)
+collision_layer = 3
+collision_mask = 3
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Ground"]
+shape = SubResource("ConcavePolygonShape3D_tsf15")
+
+[node name="Groundtests" type="MeshInstance3D" parent="Ground"]
+mesh = ExtResource("11_78v2b")
+skeleton = NodePath("../..")
+
+[node name="Sun" type="DirectionalLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -3.61999e-06, 1, 0, -1, -3.61999e-06, 0, 56.051, 0)
+shadow_enabled = true
+script = ExtResource("10_l5p2b")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Sun"]
+libraries = {
+"": SubResource("AnimationLibrary_kyjvh")
+}
+
+[node name="clock" type="Control" parent="."]
+visible = false
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -190.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("12_3mgct")
+
+[node name="Label" type="Label" parent="clock"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+text = "Place your clocktower"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="clock"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -157.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("13_uq88c")
+text = "The Clocktower is the centre of your town. It rings twice a day to indicate when working starts and ends. The Clocktower is also where you purchase upgrades, enact laws and do research. Choose carefully where to place it as it will influence your building decisions later on down the road.
+
+Use the < and > keys to rotate the Clocktower and use LMB to place it. The same controls go for placing other buildings in the future."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="placeUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -190.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("12_3mgct")
+
+[node name="Label" type="Label" parent="placeUI"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 19.0
+grow_horizontal = 2
+text = "Building"
+horizontal_alignment = 1
+
+[node name="Label2" type="Label" parent="placeUI"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -157.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("13_uq88c")
+text = "You build in a square grid surrounding your clocktower. Use LMB to place and the < > keys to rotate the building how you want. Buildings can be demolished however resources spent on them will become useless."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Label" type="Label" parent="."]
+offset_left = 9.0
+offset_top = 39.0
+offset_right = 151.0
+offset_bottom = 120.0
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1701.0
+offset_bottom = 46.0
+
+[node name="Panel" type="Panel" parent="Control"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="Control"]
+layout_mode = 0
+offset_right = 1699.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/ScrollContainer"]
+layout_mode = 2
+
+[connection signal="animation_finished" from="Sun/AnimationPlayer" to="Sun" method="_on_animation_player_animation_finished"]

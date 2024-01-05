@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dscjnotslyelb"]
+
+[ext_resource type="Texture2D" uid="uid://dm63b0o7d6gy1" path="res://tile.png" id="1_k37a8"]
+
+[node name="BuildingTile" type="Node3D"]
+
+[node name="Sprite3D" type="Sprite3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0)
+texture = ExtResource("1_k37a8")

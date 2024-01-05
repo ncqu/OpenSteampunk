@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bm4a4uw7s6r3n"]
+
+[ext_resource type="Shader" path="res://shader/PSX.gdshader" id="1_vb5bo"]
+[ext_resource type="Texture2D" uid="uid://cd82bvh51o68w" path="res://asset/Dirt_13-128x128.png" id="2_8q7bb"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_vb5bo")
+shader_parameter/jitter = 0.279
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = false
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo = ExtResource("2_8q7bb")

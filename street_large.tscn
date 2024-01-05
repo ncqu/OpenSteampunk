@@ -1,0 +1,3 @@
+[gd_scene format=3 uid="uid://cte1fvd7os4rx"]
+
+[node name="StreetLarge" type="StaticBody3D"]

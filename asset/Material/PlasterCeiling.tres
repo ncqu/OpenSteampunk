@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://1uucyl8ld2m7"]
+
+[ext_resource type="Shader" path="res://shader/PSX.gdshader" id="1_8p8v0"]
+[ext_resource type="Texture2D" uid="uid://bh5qj1n2rqbih" path="res://asset/Plaster_09-128x128.png" id="2_xkfk3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_8p8v0")
+shader_parameter/jitter = 0.279
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = false
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo = ExtResource("2_xkfk3")

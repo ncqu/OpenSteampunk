@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://n280i72r1ilw"
+path="res://.godot/imported/traintemp.obj-c5a2f73688c6205b54a778429d0b8a0c.mesh"
+
+[deps]
+
+files=["res://.godot/imported/traintemp.obj-c5a2f73688c6205b54a778429d0b8a0c.mesh"]
+
+source_file="res://asset/Temporary Assets/Train and Railway/traintemp.obj"
+dest_files=["res://.godot/imported/traintemp.obj-c5a2f73688c6205b54a778429d0b8a0c.mesh", "res://.godot/imported/traintemp.obj-c5a2f73688c6205b54a778429d0b8a0c.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

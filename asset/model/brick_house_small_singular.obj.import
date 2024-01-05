@@ -1,0 +1,21 @@
+[remap]
+
+importer="wavefront_obj"
+importer_version=1
+type="Mesh"
+uid="uid://iqeem318rxh6"
+path="res://.godot/imported/brick_house_small_singular.obj-98ce8a5bb5e8b2d623846152b3acf451.mesh"
+
+[deps]
+
+files=["res://.godot/imported/brick_house_small_singular.obj-98ce8a5bb5e8b2d623846152b3acf451.mesh"]
+
+source_file="res://asset/model/brick_house_small_singular.obj"
+dest_files=["res://.godot/imported/brick_house_small_singular.obj-98ce8a5bb5e8b2d623846152b3acf451.mesh", "res://.godot/imported/brick_house_small_singular.obj-98ce8a5bb5e8b2d623846152b3acf451.mesh"]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3(1, 1, 1)
+offset_mesh=Vector3(0, 0, 0)
+optimize_mesh=true

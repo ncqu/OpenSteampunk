@@ -1,0 +1,10 @@
+[gd_resource type="Theme" load_steps=3 format=3 uid="uid://dnjsa02ddd40g"]
+
+[ext_resource type="FontFile" uid="uid://b215eucqdgu7j" path="res://asset/UI/Font/static/JosefinSans-Bold.ttf" id="1_rtvct"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rtdad"]
+bg_color = Color(0.270588, 0.372549, 0.415686, 1)
+
+[resource]
+default_font = ExtResource("1_rtvct")
+Panel/styles/panel = SubResource("StyleBoxFlat_rtdad")

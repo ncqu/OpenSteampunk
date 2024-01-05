@@ -1,0 +1,14 @@
+[gd_resource type="ShaderMaterial" load_steps=3 format=3 uid="uid://bhe6wmf84qexe"]
+
+[ext_resource type="Shader" path="res://shader/PSX.gdshader" id="1_plulb"]
+[ext_resource type="Texture2D" uid="uid://y2gospt7wtiy" path="res://asset/Brick_08-128x128.png" id="2_ey6ky"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_plulb")
+shader_parameter/jitter = 0.279
+shader_parameter/jitter_z_coordinate = true
+shader_parameter/jitter_depth_independent = true
+shader_parameter/affine_texture_mapping = false
+shader_parameter/alpha_scissor = 1.0
+shader_parameter/albedo = ExtResource("2_ey6ky")

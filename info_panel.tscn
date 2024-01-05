@@ -1,0 +1,123 @@
+[gd_scene load_steps=5 format=3 uid="uid://fm6jvn2i8mx4"]
+
+[ext_resource type="Theme" uid="uid://brdu02r7dqvyu" path="res://asset/UI/BasicTheme.tres" id="1_nhg5v"]
+[ext_resource type="Script" path="res://InfoPanel.gd" id="2_fmsgo"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_r452k"]
+font_size = 41
+
+[sub_resource type="LabelSettings" id="LabelSettings_osdn3"]
+font_size = 13
+
+[node name="InfoPanel" type="Control"]
+layout_mode = 3
+anchor_right = 0.376
+anchor_bottom = 0.725
+offset_right = -0.152008
+offset_bottom = 0.199982
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nhg5v")
+script = ExtResource("2_fmsgo")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Title" type="Label" parent="."]
+layout_mode = 0
+offset_left = 5.0
+offset_top = -3.0
+offset_right = 88.0
+offset_bottom = 60.0
+text = "Title"
+label_settings = SubResource("LabelSettings_r452k")
+
+[node name="Infopanel" type="Label" parent="."]
+layout_mode = 0
+offset_left = 280.0
+offset_top = 14.0
+offset_right = 341.0
+offset_bottom = 37.0
+text = "Infopanel"
+label_settings = SubResource("LabelSettings_osdn3")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 11.0
+offset_top = 50.0
+offset_right = 403.0
+offset_bottom = 452.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+
+[node name="Placeholder" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="name" type="Label" parent="ScrollContainer/VBoxContainer/Placeholder"]
+layout_mode = 2
+text = "Name"
+
+[node name="pipe" type="Label" parent="ScrollContainer/VBoxContainer/Placeholder"]
+layout_mode = 2
+text = "|"
+
+[node name="data" type="Label" parent="ScrollContainer/VBoxContainer/Placeholder"]
+layout_mode = 2
+text = "Data"
+
+[node name="PlaceholderButton" type="HBoxContainer" parent="ScrollContainer/VBoxContainer"]
+visible = false
+layout_mode = 2
+
+[node name="name" type="Label" parent="ScrollContainer/VBoxContainer/PlaceholderButton"]
+layout_mode = 2
+text = "Name"
+
+[node name="pipe" type="Label" parent="ScrollContainer/VBoxContainer/PlaceholderButton"]
+layout_mode = 2
+text = "|"
+
+[node name="data" type="Button" parent="ScrollContainer/VBoxContainer/PlaceholderButton"]
+layout_mode = 2
+text = "Data"
+
+[node name="close" type="Button" parent="."]
+layout_mode = 0
+offset_left = 354.0
+offset_top = 8.0
+offset_right = 403.0
+offset_bottom = 43.0
+text = "close"
+
+[node name="Window" type="Window" parent="."]
+title = "An error has occured"
+position = Vector2i(20, 100)
+size = Vector2i(300, 100)
+visible = false
+
+[node name="Panel" type="Panel" parent="Window"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Window/Panel"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "An error has occured.Please wait while the game fixes it. If the error persists please report it. If the game is frozen the full stops should stop appearing."
+autowrap_mode = 2
+
+[connection signal="ready" from="ScrollContainer/VBoxContainer/Placeholder" to="." method="_on_placeholder_ready"]
+[connection signal="pressed" from="close" to="." method="_on_close_pressed"]
